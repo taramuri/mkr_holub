@@ -46,3 +46,30 @@ def price_change_last_month(products, product_name):
     percentage_change = (price_change / initial_price) * 100
 
     return f"The price change for {product_name} in the last month: {price_change:.2f} ({percentage_change:.2f}%)"
+
+def write_to_file(file_name, content):
+    """
+    Writes content to a file.
+
+    Args:
+        file_name (str): The name of the file to write the content to.
+        content (str): The content to be written to the file.
+    """
+    with open(file_name, "w") as file:
+        file.write(content)
+    print("Result saved to result.txt")
+
+if __name__ == "__main__":
+    file_name = "products.txt"
+    products = read_products_file(file_name)
+
+    processed_products = set()  # To keep track of processed products
+    result_content = ""
+
+    for product in products:
+        if product['name'] not in processed_products:
+            result = price_change_last_month(products, product['name'])
+            result_content += f"{result}\n"
+            processed_products.add(product['name'])
+
+    write_to_file("result.txt", result_content)

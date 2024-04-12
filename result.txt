@@ -1,0 +1,3 @@
+The price change for Product1 in the last month: 10.00 (9.52%)
+The price change for Product2 in the last month: -100.00 (-50.00%)
+The price change for Product3 in the last month: 150.00 (300.00%)
